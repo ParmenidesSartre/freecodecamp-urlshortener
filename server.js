@@ -32,7 +32,7 @@ app.post('/api/shorturl', function(req, res) {
       "short_url": key
     });
   } else {
-    res.status(400).json({ error: 'invalid url' });
+    res.status(401).json({ error: 'invalid url' });
   }
 });
 
