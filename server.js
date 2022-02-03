@@ -36,6 +36,14 @@ app.post('/api/shorturl', function(req, res) {
   }
 });
 
+app.get('/api/shorturl/:shorturl', (req, res) => {
+  if (req.params.shorturl in urlObj) {
+    res.redirect(urlObj[req.params.shorturl]);
+  } else {
+    res.status(400).json({error: 'No such short URL'});
+  }
+})
+
 app.listen(port, function() {
   console.log(`Listening on port ${port}`);
 });
